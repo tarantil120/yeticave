@@ -48,7 +48,6 @@ $category_info = array(
         <nav class="user-menu">
 
             <?php
-
                 if($is_auth){
                     ?>
                     <div class="user-menu__image">
@@ -69,7 +68,6 @@ $category_info = array(
                     </li>
                     </ul>
                <?php } ?>
-
         </nav>
     </div>
 </header>
@@ -82,7 +80,6 @@ $category_info = array(
             <?php
             foreach($array as $category){
                 ?>
-
             <li class="promo__item promo__item--<?=$category["Image"]?>">
                 <a class="promo__link" href="all-lots.html"><?=$category["Category"]?></a>
             </li>
@@ -94,7 +91,6 @@ $category_info = array(
             <h2>Открытые лоты</h2>
         </div>
         <ul class="lots__list">
-            <!--заполните этот список из массива с товарами-->
             <?php
             foreach ($category_info as $info){
             ?>
