@@ -2,7 +2,14 @@
 $is_auth = rand(0, 1);
 
 $user_name = 'tarantil120'; // укажите здесь ваше имя
-$array = array("Доски и лыжи","Крепления","Ботинки","Одежда","Инструменты","Разное");
+$array = array(
+    array("Category"=>"Доски и лыжи","Image"=>"boards"),
+    array("Category"=>"Крепления","Image"=>"attachment"),
+    array("Category"=>"Ботинки","Image"=>"boots"),
+    array("Category"=>"Одежда","Image"=>"clothing"),
+    array("Category"=>"Инструменты","Image"=>"tools"),
+    array("Category"=>"Разное","Image"=>"other")
+    );
 
 $category_info = array(
     array("Title"=>"2014 Rossignol District Snowboard", "Category"=>"Доски и лыжи","Price"=>"10999","Image URL"=>"img/lot-1.jpg"),
@@ -12,6 +19,8 @@ $category_info = array(
     array("Title"=>"Куртка для сноуборда DC Mutiny Charocal","Category"=>"Одежда","Price"=>"7500","Image URL"=>"img/lot-5.jpg"),
     array("Title"=>"Маска Oakley Canopy","Category"=>"Разное","Price"=>"5400","Image URL"=>"img/lot-6.jpg")
 );
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -40,7 +49,7 @@ $category_info = array(
 
             <?php
 
-                if($is_auth==1){
+                if($is_auth){
                     ?>
                     <div class="user-menu__image">
         <img src="img/user.jpg" width="40" height="40" alt="Пользователь">
@@ -74,8 +83,8 @@ $category_info = array(
             foreach($array as $category){
                 ?>
 
-            <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="all-lots.html"><?=$category?></a>
+            <li class="promo__item promo__item--<?=$category["Image"]?>">
+                <a class="promo__link" href="all-lots.html"><?=$category["Category"]?></a>
             </li>
             <?php } ?>
         </ul>
@@ -119,7 +128,6 @@ $category_info = array(
             <?php
             foreach($array as $category){
                 ?>
-            <!--заполните этот список из массива категорий-->
             <li class="nav__item">
                 <a href="pages/all-lots.html"><?=$category?></a>
             </li>
