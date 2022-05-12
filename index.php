@@ -20,7 +20,23 @@ $category_info = array(
     array("Title"=>"Маска Oakley Canopy","Category"=>"Разное","Price"=>"5400","Image URL"=>"img/lot-6.jpg")
 );
 
+function sub_format ($number){
+    $number = ceil($number);
+    if($number<1000){
+        $result = $number;
+    }
+    else{
+        $result = number_format($number,0,","," ");
+    }
+    return $result.'<b class="rub">р</b>';
+}
 
+function timer (){
+    $present = new DateTime('now');
+    $future = new DateTime('24:00:00');
+    $interval = $present->diff($future);
+    return $interval->format('%h:%i');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -104,10 +120,10 @@ $category_info = array(
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Старотовая ставка</span>
-                            <span class="lot__cost"><?=$info["Price"]?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=sub_format($info["Price"])?></span>
                         </div>
                         <div class="lot__timer timer">
-                            12:23
+                            <?=timer()?>
                         </div>
                     </div>
                 </div>
@@ -125,7 +141,7 @@ $category_info = array(
             foreach($array as $category){
                 ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?=$category?></a>
+                <a href="pages/all-lots.html"><?=$category["Category"]?></a>
             </li>
             <?php } ?>
         </ul>
