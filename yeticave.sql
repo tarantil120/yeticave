@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 13 2022 г., 11:15
+-- Время создания: Май 13 2022 г., 11:28
 -- Версия сервера: 5.7.33-log
 -- Версия PHP: 7.1.33
 
@@ -42,7 +42,7 @@ CREATE TABLE `lot` (
   `id_lot` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_category` int(11) NOT NULL,
-  `id_steps` int(11) NOT NULL,
+  `id_winner` int(11) NOT NULL,
   `creation_date` datetime NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL,
@@ -95,10 +95,10 @@ ALTER TABLE `category`
 -- Индексы таблицы `lot`
 --
 ALTER TABLE `lot`
-  ADD PRIMARY KEY (`id_lot`),
+  ADD PRIMARY KEY (`id_lot`,`id_winner`) USING BTREE,
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_category` (`id_category`),
-  ADD KEY `id_steps` (`id_steps`);
+  ADD KEY `id_winner` (`id_winner`);
 
 --
 -- Индексы таблицы `steps`
@@ -149,9 +149,9 @@ ALTER TABLE `users`
 -- Ограничения внешнего ключа таблицы `lot`
 --
 ALTER TABLE `lot`
-  ADD CONSTRAINT `lot_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `lot_ibfk_2` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `lot_ibfk_3` FOREIGN KEY (`id_steps`) REFERENCES `steps` (`id_steps`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `lot_ibfk_2` FOREIGN KEY (`id_winner`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lot_ibfk_3` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lot_ibfk_4` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `steps`
