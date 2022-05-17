@@ -36,6 +36,6 @@ order by creation_date desc; /*получить самые новые, откр�
 
 SELECT `id_lot`,`category`.`name` FROM lot INNER JOIN category ON `lot`.`id_category` = `category`.`id_category`; /* получить id лота и название категории по id */
 
-UPDATE `lot` SET `name`= 'You my butterfly, sugar, lady' WHERE `id_lot` = 1;   UPDATE `lot` SET `name`= '2014 Rossignol District Snowboard' WHERE `id_lot` = 1;   /* обновить название лота по его идентификатору */
+UPDATE `lot` SET `lot_name`= 'You my butterfly, sugar, lady' WHERE `id_lot` = 1;   UPDATE `lot` SET `lot_name`= '2014 Rossignol District Snowboard' WHERE `id_lot` = 1;   /* обновить название лота по его идентификатору */
 
 SELECT `id_steps`,`steps`.`id_user`,`date_placement`,`sum` FROM `steps` INNER JOIN `users` ON `steps`.`id_user` = `users`.`id_user` WHERE DATE(`date_placement`) = '2022-05-16';  /* получить список самых свежих ставок для лота по его идентификатору;  */

@@ -1,5 +1,6 @@
 <?php
 require_once "functions.php";
+require_once "data.php";
 
 $page_content = include_template('index.php', ['array' => $array, 'category_info'=>$category_info]);
 $layout_content = include_template('layout.php', [
@@ -11,3 +12,4 @@ $layout_content = include_template('layout.php', [
 print($layout_content);
 
 ?>
+
