@@ -13,7 +13,7 @@ if(isset($_GET["id_lot"])){
     $layout_content = include_template('layout.php', [
         'main' => $page_content,
         'array' => $array,
-        'title' => 'Лот'
+        'title' => $lot_site["lot_name"]
     ]);
     if($lot_site["id_lot"] != $id ){
         header("Location: 404.php");
