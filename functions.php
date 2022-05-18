@@ -35,7 +35,12 @@ function timer (){
     $present = new DateTime('now');
     $future = new DateTime('24:00:00');
     $interval = $present->diff($future);
-    return $interval->format('%h:%i');
+    if($interval ->format('%i')<10){
+        return $interval->format('%h:0%i');
+    }
+    else {
+        return $interval->format('%h:%i');
+    }
 }
 
 function include_template($name, $data) {
@@ -50,4 +55,5 @@ function include_template($name, $data) {
     $result = ob_get_clean();
     return $result;
 }
+
 ?>
