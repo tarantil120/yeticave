@@ -1,7 +1,7 @@
 <?php
 $is_auth = rand(0, 1);
 
-$user_name = 'tarantil120';
+$user_name = "tarantula120";
 /* $array = array(
     array("Category"=>"Доски и лыжи","Image"=>"boards"),
     array("Category"=>"Крепления","Image"=>"attachment"),

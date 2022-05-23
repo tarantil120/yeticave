@@ -1,5 +1,4 @@
-
-        <nav class="nav">
+<nav class="nav">
             <ul class="nav__list container">
                 <?php
                 foreach($array as $category){
@@ -11,6 +10,7 @@
             </ul>
         </nav>
         <section class="lot-item container">
+
             <h2><?=$lot_site['lot_name']?></h2>
             <div class="lot-item__content">
                 <div class="lot-item__left">
@@ -20,5 +20,3 @@
                     <p class="lot-item__category">Категория: <span><?=$lot_site["name"]?></span></p>
                     <p class="lot-item__description"><?=$lot_site["description"]?></p>
                 </div>
-
-
