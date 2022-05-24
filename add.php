@@ -25,7 +25,9 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
     mysqli_set_charset($link, utf8);
     $result4 = mysqli_query($link,$query);
     $result5 = move_uploaded_file($_FILES['image']['tmp_name'],'C:/OpenServer/domains/yeticave/img'. $_FILES['image']['name']);
-    print_r($result5);
+    $query_id_lot = "SELECT id_lot from lot where lot_name='$lot_name'";
+    header("Location:lot.php?id_lot=($query_id_lot)");
+
 
 }
 

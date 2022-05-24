@@ -8,8 +8,6 @@ $layout_content = include_template('layout.php', [
     'array' => $array,
     'title' => 'Главная'
 ]);
-
 print($layout_content);
 
-?>
 
