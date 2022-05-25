@@ -1,8 +1,6 @@
 <?php
-
 session_start();
-function include_path($name, $data): string
-{
+function include_template($name, $data) {
     $is_auth = isset($_SESSION['user_name']);
     $user_name = $_SESSION['user_name']??"";
     $avatar = $_SESSION['avatar']??"";
@@ -44,18 +42,6 @@ function timer (){
     }
 }
 
-function include_template($name, $data) {
-    $name = 'templates/' . $name;
-    $result = '';
-    if (!file_exists($name)) {
-        return $result;
-    }
-    ob_start();
-    extract($data);
-    require($name);
-    $result = ob_get_clean();
-    return $result;
-}
 
 function type_int_empty($lot1)
 {
