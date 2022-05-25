@@ -13,7 +13,7 @@
     <header class="main-header">
         <div class="main-header__container container">
             <h1 class="visually-hidden">YetiCave</h1>
-            <a class="main-header__logo">
+            <a class="main-header__logo" href="../index.php">
                 <img src="../img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
             </a>
             <form class="main-header__search" method="get" action="https://echo.htmlacademy.ru" autocomplete="off">
@@ -25,13 +25,14 @@
             <nav class="user-menu">
 
                 <?php
-                if($is_auth){
+                if($is_auth==1){
                     ?>
                     <div class="user-menu__image">
-                        <img src="img/user.jpg" width="40" height="40" alt="Пользователь">
+                        <img src="<?=$avatar?>" width="40" height="40" alt="Пользователь">
                     </div>
                     <div class="user-menu__logged">
                         <p><?=$user_name?></p>
+                        <a href="../logout.php">Выход</a>
                     </div>
                 <?php }
                 else{

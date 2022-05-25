@@ -14,7 +14,6 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 
     foreach ($info_users as $info) {
         if ($info["email"] == $email && $info["password"] == $password) {
-            session_start();
             $user_name = "SELECT name FROM users WHERE email = '$email'";
             header("Location:index.php");
         } else if ($password != $info["password"]) {
