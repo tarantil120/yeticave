@@ -25,8 +25,7 @@
             <nav class="user-menu">
 
                 <?php
-                if($is_auth==1){
-                    ?>
+                if($is_auth==1){?>
                     <div class="user-menu__image">
                         <img src="<?=$avatar?>" width="40" height="40" alt="Пользователь">
                     </div>
@@ -35,8 +34,7 @@
                         <a href="../logout.php">Выход</a>
                     </div>
                 <?php }
-                else{
-                    ?>
+                else{?>
                     <ul class="user-menu__list">
                         <li class="user-menu__item">
                             <a href="#">Регистрация</a>
@@ -45,7 +43,8 @@
                             <a href="login.php">Вход</a>
                         </li>
                     </ul>
-                <?php } ?>
+                <?php }
+                ?>
             </nav>
         </div>
     </header>
